@@ -6,7 +6,7 @@ import requests
 
 recognizer=sr.Recognizer()
 engine = pyttsx3.init()
-newsAPI="87bcc1f7c19b423396930f8097689b9a"  
+# newsAPI="87bcc1f7c19b423396930f8097689b9a" #uncomment it to use 
 
 def speak(text):
     engine.say(text)
@@ -25,20 +25,20 @@ def processCommand(c):
         song=c.lower().split(" ")[1]
         link=musicLibrary.music[song]
         webbrowser.open(link)
-    elif "news" in c.lower():
+    # elif "news" in c.lower():
         #Define the API URL with your API key
         #Send the GET request
-        print("hi")
-        response=requests.get(f"https://newsapi.org/v2/top-headlines?country=us&apiKey={newsAPI}")
-        #Convert the response to JSON
-        data=response.json()
-        if data["status"] == "ok":
-            articles = data["articles"]
-            speak(" Top News Headlines:\n")
-            for i, article in enumerate(articles[:10]):  # Speak top 10
-                speak(f"{i+1}. {article['title']}")
-        else:
-            speak("Failed to fetch news. Please check your API key or request.")
+        # print("hi")
+        # # response=requests.get(f"https://newsapi.org/v2/top-headlines?country=us&apiKey={newsAPI}")#uncomment it to use
+        # #Convert the response to JSON
+        # data=response.json()
+        # if data["status"] == "ok":
+        #     articles = data["articles"]
+        #     speak(" Top News Headlines:\n")
+        #     for i, article in enumerate(articles[:10]):  # Speak top 10
+        #         speak(f"{i+1}. {article['title']}")
+        # else:
+        #     speak("Failed to fetch news. Please check your API key or request.")
 
 
 
